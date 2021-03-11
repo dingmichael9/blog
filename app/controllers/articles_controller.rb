@@ -15,8 +15,10 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      flash[:success] = "You made a new article!"
       redirect_to @article
     else
+      flash[:error] = "You a dumbass!"
       render :new
     end
   end
